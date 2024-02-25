@@ -1,0 +1,57 @@
+.product_page_container {
+    width: 100%;
+    display: flex;
+}
+
+.product_media_container {
+    width: 50%;
+    height: 400px;
+    position: relative;
+}
+
+.product_image_slide_container {
+    height: 100% !important;
+}
+
+.product_info_container {
+    width: 50%;
+}
+
+.product_info_vendor {
+    margin-bottom: 0;
+}
+
+.product_info_title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product_info_compare_price {
+    margin: 0;
+    text-decoration: line-through;
+    font-weight: 600;
+    color: #999;
+}
+
+.product_info_price {
+
+}
+
+.product_info_price_discount {
+    margin-top: 0;
+    color: red;
+}
+
+
+@media screen and (max-width: 768px) {
+    .product_page_container {
+        flex-flow: column;
+    }
+    .product_media_container {
+        margin-top: 1rem ;
+        width: 100%;
+    }
+    .product_info_container{
+        width: 100%;
+    }
+}

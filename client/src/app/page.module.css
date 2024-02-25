@@ -1,0 +1,30 @@
+.main_title {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+.collection_list_container {
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.collection_list_item {
+    list-style: none;
+    width: calc(50% - 0.5rem);
+}
+
+@media screen and (min-width: 768px) {
+    .collection_list_item {
+        width: calc(33.33% - 1rem);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .collection_list_item {
+        width: calc(20% - 1rem);
+    }
+}
