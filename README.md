@@ -8,7 +8,7 @@ Start the server app on port 3000
 ```
 cd server;
 npm install;
-npm run start;
+npm run dev;
 ```
 
 ### Client
@@ -16,5 +16,5 @@ Start the frontend app
 ```
 cd ../client;
 npm install;
-npm run start;
+npm run dev;
 ```
