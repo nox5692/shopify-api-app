@@ -10,17 +10,25 @@ export default function Home(): React.JSX.Element {
   // Set collections to an empty array, will be filled with collections objects after api fetch
   const [collections, setCollections] = useState<Collection[]>([]);
   useEffect(() => {
-    fetch(API_COLLECTIONS_ENDPOINT)
-      .then(response => response.json())
-      .then(data => {
-        const collections: any = data.map((c: any) => c.node);
-        setCollections(collections);
-      })
-      .catch(error => console.error('Error fetching products:', error));
+    const fetchCollections = async () => {
+      try {
+        const res = await fetch(API_COLLECTIONS_ENDPOINT);
+        if (!res.ok) {
+          throw new Error('Failed to fetch collections');
+        }
+        const data = await res.json();
+        // Map array nodes to an array of raw collections
+        const collections_array: Collection[] = data.map((c: { node: Collection }) => c.node);
+        setCollections(collections_array);
+      } catch (e) {
+        console.error('Error fetching collections:', e);
+      }
+    };
+    fetchCollections();
   }, []);
 
   return (
-    <div style={{width: "100%"}}>
+    <div style={{ width: "100%" }}>
       <h1 className={styles.main_title}>Browse collections</h1>
       <ul className={styles.collection_list_container}>
         {collections.map((collection: Collection) => (
@@ -28,10 +36,10 @@ export default function Home(): React.JSX.Element {
             <Link href={
               {
                 pathname: `/collections`,
-                query: { id: `${collection.id}`}
+                query: { id: `${collection.id}` }
               }
             }>
-              <CollectionTile title={collection.title}/>
+              <CollectionTile title={collection.title} />
             </Link>
           </li>
         ))}

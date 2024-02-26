@@ -17,6 +17,7 @@ export default function productTile(props: ProductProps): React.JSX.Element {
             <div className={styles.product_tile_image_container}>
                 {imageUrl ? (
                     <Image
+                        quality={25}
                         src={imageUrl}
                         alt={product.images.edges[0].node.altText}
                         fill={true}
