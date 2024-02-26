@@ -21,6 +21,8 @@ export default function productTile(props: ProductProps): React.JSX.Element {
                         alt={product.images.edges[0].node.altText}
                         fill={true}
                         objectFit="contain"
+                        placeholder='blur'
+                        blurDataURL={'/no-media.png'}
                     ></Image>
                 ) : (
                     <Image

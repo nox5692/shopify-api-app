@@ -67,12 +67,24 @@ export default function ProductPage({ searchParams }: any): React.JSX.Element {
           >
             {productData?.images.edges.map(({ node: image }) => (
               <SwiperSlide className={styles.product_image_slide_container} key={image.id}>
-                <Image objectFit={'contain'} fill={true} src={image.originalSrc} alt={image.altText} />
+                <Image
+                  objectFit={'contain'}
+                  fill={true}
+                  src={image.originalSrc}
+                  alt={image.altText}
+                  placeholder='blur'
+                  blurDataURL={'/no-media.png'}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
-          <Image objectFit={'contain'} fill={true} src={'/no-media.png'} alt={'No product image available.'} />
+          <Image
+            objectFit={'contain'}
+            fill={true}
+            src={'/no-media.png'}
+            alt={'No product image available.'}
+          />
         )}
       </div>
       <div className={styles.product_info_container}>
